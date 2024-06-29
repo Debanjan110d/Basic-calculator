@@ -10,7 +10,7 @@ function clearDisplay() {
 }
 function calculate() {
 	try {
-		display.value = eval(display.value);
+		display.value = eval(display.value); // eval()  function is mostly used in situations or applications which need to evaluate mathematical expressions
 	} catch (error) {
 		display.value = "Syntax error";
 	}

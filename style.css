@@ -83,3 +83,45 @@ button:active {
 .clear-btn:active {
 	transform: scale(0.95);
 }
+
+/* For screens smaller than 992px (tablets) */
+@media (max-width: 992px) {
+	.calculator {
+		max-width: 300px;
+	}
+	#display {
+		font-size: 3.5rem;
+	}
+	button {
+		width: 50px;
+		height: 50px;
+		font-size: 1.5rem;
+	}
+}
+
+/* For screens smaller than 768px (mobiles) */
+@media (max-width: 768px) {
+	.calculator {
+		max-width: 100%;
+		max-width: 100%;
+	}
+	#display {
+		padding: 15%;
+		font-size: 3rem;
+		font-size: 4.5rem;
+		text-align: left;
+	}
+	#keys {
+		display: grid;
+		margin-top: 3vh;
+		gap: 15px;
+		padding: 21px;
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	button {
+		width: 60px;
+		height: 60px;
+		font-size: 1.2rem;
+	}
+}
