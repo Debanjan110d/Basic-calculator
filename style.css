@@ -1,16 +1,85 @@
-* {
+body {
 	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+#keys {
+	display: grid;
+	gap: 21px;
+	padding: 21px;
+	grid-template-columns: repeat(
+		4,
+		1fr
+	); /* 1fr stands for 1 fraction Used to maintain the space (similiar to space-between in flex box) */
+}
+
+.calculator {
+	font-family: Arial, Helvetica, sans-serif;
+
+	max-width: 500px;
+	overflow: hidden;
+	background-image: radial-gradient(
+		circle 975px at 2.6% 48.3%,
+		rgba(0, 8, 120, 1) 0%,
+		rgba(95, 184, 224, 1) 99.7%
+	);
+	border-radius: 15px;
+}
+
+#display {
+	width: 100%;
+	padding: 1%;
+	font-size: 5rem;
+	text-align: left;
+	border: none;
+	color: white;
+	background-color: rgba(95, 184, 224, 1);
 }
 
 button {
-	width: 100px;
-	height: 100px;
+	width: 80px;
+	height: 80px;
 	border-radius: 50%;
 	border: none;
 	background: #020202a9;
 	color: #fff;
-	font-size: 3rem;
+	font-size: 2.7rem;
 	cursor: pointer;
+	font-weight: 600;
+}
+button:hover {
+	background: #020202;
+}
+button:active {
+	transform: scale(0.95);
+}
+.operator-btn {
+	background: #ff9a00;
+}
+.operator-btn:hover {
+	background: #f2b75d;
+}
+.operator-btn:active {
+	transform: scale(0.95);
+}
+.delete-btn {
+	background: #ff0000;
+}
+.delete-btn:hover {
+	background: #ff4d4d;
+}
+.delete-btn:active {
+	transform: scale(0.95);
+}
+.clear-btn {
+	background: #4ff963;
+}
+.clear-btn:hover {
+	background: #76f995;
+}
+.clear-btn:active {
+	transform: scale(0.95);
 }
