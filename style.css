@@ -4,8 +4,13 @@ body {
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
+	background: gray;
 }
 
+input {
+	caret-color: #fff;
+	border: #240750 3px solid;
+}
 #keys {
 	display: grid;
 	gap: 21px;
@@ -14,6 +19,9 @@ body {
 		4,
 		1fr
 	); /* 1fr stands for 1 fraction Used to maintain the space (similiar to space-between in flex box) */
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+		rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+		rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .calculator {
@@ -21,11 +29,7 @@ body {
 
 	max-width: 500px;
 	overflow: hidden;
-	background-image: radial-gradient(
-		circle 975px at 2.6% 48.3%,
-		rgba(0, 8, 120, 1) 0%,
-		rgba(95, 184, 224, 1) 99.7%
-	);
+	background-color: #240750;
 	border-radius: 15px;
 }
 
@@ -36,7 +40,7 @@ body {
 	text-align: left;
 	border: none;
 	color: white;
-	background-color: rgba(95, 184, 224, 1);
+	background-color: #7077a1;
 }
 
 button {
@@ -44,14 +48,17 @@ button {
 	height: 80px;
 	border-radius: 50%;
 	border: none;
-	background: #020202a9;
+	background-color: #424769;
 	color: #fff;
 	font-size: 2.7rem;
 	cursor: pointer;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+		rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+		rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 	font-weight: 600;
 }
 button:hover {
-	background: #020202;
+	background: #37b7c3;
 }
 button:active {
 	transform: scale(0.95);
@@ -103,7 +110,7 @@ button:active {
 @media (max-width: 768px) {
 	.calculator {
 		max-width: 100%;
-		max-width: 100%;
+		height: 100%;
 	}
 	#display {
 		padding: 15%;
