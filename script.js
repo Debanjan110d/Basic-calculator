@@ -1,20 +1,51 @@
-//lets Start
+document.addEventListener("DOMContentLoaded", loadHistory);
 
-const display = document.getElementById("display");
-function appendToDisplay(input) {
-	display.value += input;
+function appendToDisplay(value) {
+	document.getElementById("display").value += value;
 }
 
 function clearDisplay() {
-	display.value = "";
+	document.getElementById("display").value = "";
 }
-function calculate() {
+
+function deleteLast() {
+	const display = document.getElementById("display");
+	display.value = display.value.slice(0, -1);
+}
+
+function calculateResult() {
+	const display = document.getElementById("display");
 	try {
-		display.value = eval(display.value); // eval()  function is mostly used in situations or applications which need to evaluate mathematical expressions
-	} catch (error) {
-		display.value = "Syntax error";
+		const result = eval(display.value);
+		display.value = result;
+		addToHistory(`${display.value} = ${result}`);
+	} catch (e) {
+		alert("Invalid calculation");
 	}
 }
-function deleteLast() {
-	display.value = display.value.slice(0, -1);
+
+function addToHistory(calculation) {
+	let history = JSON.parse(localStorage.getItem("history")) || [];
+	history.push(calculation);
+	if (history.length > 10) {
+		history.shift();
+	}
+	localStorage.setItem("history", JSON.stringify(history));
+	loadHistory();
+}
+
+function loadHistory() {
+	const historyList = document.getElementById("historyList");
+	historyList.innerHTML = "";
+	const history = JSON.parse(localStorage.getItem("history")) || [];
+	history.forEach((calc) => {
+		const li = document.createElement("li");
+		li.textContent = calc;
+		historyList.appendChild(li);
+	});
+}
+
+function clearHistory() {
+	localStorage.removeItem("history");
+	loadHistory();
 }
